@@ -267,6 +267,6 @@ class TicketInfo extends Component
             }
 
         }
-        return view('livewire.frontend.ticket-info')->layout('Layouts.frontend');
+        return view('livewire.frontend.ticket-info')->layout('layouts.frontend');
     }
 }

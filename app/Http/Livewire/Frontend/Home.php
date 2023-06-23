@@ -9,6 +9,6 @@ class Home extends Component
     public function render()
     {
         $this->ticketList = \App\Models\Ticket::all();
-        return view('livewire.frontend.home')->layout('Layouts.frontend');
+        return view('livewire.frontend.home')->layout('layouts.frontend');
     }
 }
