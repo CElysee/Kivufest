@@ -67,7 +67,7 @@
                             <div id="kt_app_content" class="app-content flex-column-fluid">
                                 <!--begin::Row-->
                                 <div class="row g-5 g-xl-10 mb-5 mb-xl-0">
-
+                                @foreach($tickes_info as $key => $ticket)
                                     <!--begin::Col-->
                                     <div class="col-md-4 mb-xl-10">
                                         <!--begin::Card widget 28-->
@@ -85,7 +85,7 @@
                                                     <!--begin::Wrapper-->
                                                     <div class="me-n2">
                                                         <!--begin::Badge-->
-                                                        <span class="badge badge-light-success align-self-center fs-base"> <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i> 2.2% </span>
+                                                        <span class="fs-2 fw-bold text-success badge badge-light-success align-self-center fs-base"> <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i> {{$ticket->number_of_tickets}}</span>
                                                         <!--end::Badge-->
                                                     </div>
                                                     <!--end::Wrapper-->
@@ -98,8 +98,8 @@
                                             <div class="card-body d-flex align-items-end">
                                                 <!--begin::Wrapper-->
                                                 <div class="d-flex flex-column">
-                                                    <span class="fw-bolder fs-2x text-dark">$65,209.00</span>
-                                                    <span class="fw-bold fs-7 text-gray-500">SAP UI Progress</span>
+                                                    <span class="fw-bolder fs-2x text-dark">RWF {{$ticket->total_amount}}</span>
+                                                    <span class="fw-bold fs-7 text-gray-500">{{$ticket->ticket_title}}</span>
                                                 </div>
                                                 <!--end::Wrapper-->
                                             </div>
@@ -108,91 +108,7 @@
                                         <!--end::Card widget 28-->
                                     </div>
                                     <!--end::Col-->
-
-                                    <!--begin::Col-->
-                                    <div class="col-md-4 mb-xl-10">
-                                        <!--begin::Card widget 28-->
-                                        <div class="card card-flush">
-                                            <!--begin::Header-->
-                                            <div class="card-header pt-7">
-                                                <!--begin::Card title-->
-                                                <div class="card-title flex-stack flex-row-fluid">
-                                                    <!--begin::Symbol-->
-                                                    <div class="symbol symbol-45px me-5">
-                                                        <span class="symbol-label bg-light-info"> <i class="ki-outline ki-microsoft fs-2x text-gray-800"></i> </span>
-                                                    </div>
-                                                    <!--end::Symbol-->
-
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-n2">
-                                                        <!--begin::Badge-->
-                                                        <span class="badge badge-light-danger align-self-center fs-base">
-                                                            <i class="ki-outline ki-arrow-down fs-5 text-danger ms-n1"></i>
-                                                            2.5%
-                                                        </span>
-                                                        <!--end::Badge-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                </div>
-                                                <!--end::Header-->
-                                            </div>
-                                            <!--end::Card title-->
-
-                                            <!--begin::Card body-->
-                                            <div class="card-body d-flex align-items-end">
-                                                <!--begin::Wrapper-->
-                                                <div class="d-flex flex-column">
-                                                    <span class="fw-bolder fs-2x text-dark">$6,526.00</span>
-                                                    <span class="fw-bold fs-7 text-gray-500">SAP UI Progress</span>
-                                                </div>
-                                                <!--end::Wrapper-->
-                                            </div>
-                                            <!--end::Card body-->
-                                        </div>
-                                        <!--end::Card widget 28-->
-                                    </div>
-                                    <!--end::Col-->
-
-                                    <!--begin::Col-->
-                                    <div class="col-md-4 mb-xl-10">
-                                        <!--begin::Card widget 28-->
-                                        <div class="card card-flush">
-                                            <!--begin::Header-->
-                                            <div class="card-header pt-7">
-                                                <!--begin::Card title-->
-                                                <div class="card-title flex-stack flex-row-fluid">
-                                                    <!--begin::Symbol-->
-                                                    <div class="symbol symbol-45px me-5">
-                                                        <span class="symbol-label bg-light-info"> <i class="ki-outline ki-apple fs-2x text-gray-800"></i> </span>
-                                                    </div>
-                                                    <!--end::Symbol-->
-
-                                                    <!--begin::Wrapper-->
-                                                    <div class="me-n2">
-                                                        <!--begin::Badge-->
-                                                        <span class="badge badge-light-success align-self-center fs-base"> <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i> 2.7% </span>
-                                                        <!--end::Badge-->
-                                                    </div>
-                                                    <!--end::Wrapper-->
-                                                </div>
-                                                <!--end::Header-->
-                                            </div>
-                                            <!--end::Card title-->
-
-                                            <!--begin::Card body-->
-                                            <div class="card-body d-flex align-items-end">
-                                                <!--begin::Wrapper-->
-                                                <div class="d-flex flex-column">
-                                                    <span class="fw-bolder fs-2x text-dark">$45,142.00</span>
-                                                    <span class="fw-bold fs-7 text-gray-500">SAP UI Progress</span>
-                                                </div>
-                                                <!--end::Wrapper-->
-                                            </div>
-                                            <!--end::Card body-->
-                                        </div>
-                                        <!--end::Card widget 28-->
-                                    </div>
-                                    <!--end::Col-->
+                                @endforeach
                                 </div>
                                 <!--end::Row-->
 
@@ -206,8 +122,7 @@
                                             <div class="card-header pt-7">
                                                 <!--begin::Title-->
                                                 <h3 class="card-title align-items-start flex-column">
-                                                    <span class="card-label fw-bold text-gray-800">Lading Teams</span>
-                                                    <span class="text-gray-400 mt-1 fw-semibold fs-6">8k social visitors</span>
+                                                    <span class="card-label fw-bold text-gray-800">Recent Transactions</span>
                                                 </h3>
                                                 <!--end::Title-->
 
@@ -222,280 +137,39 @@
                                                 <!--begin::Items-->
                                                 <div class="">
                                                     <!--begin::Item-->
+                                                    @foreach($recent_transactions as $key => $ticket)
                                                     <div class="d-flex flex-stack">
                                                         <!--begin::Section-->
+
                                                         <div class="d-flex align-items-center me-5">
                                                             <!--begin::Flag-->
-                                                            <img src="assets/media/svg/brand-logos/atica.svg" class="me-4 w-30px" style="border-radius: 4px;" alt="" />
+                                                            <img src="{{asset('assets/logo/G-yNUEMq_400x400.jpg')}}" class="me-4 w-30px" style="border-radius: 4px;" alt="" />
                                                             <!--end::Flag-->
-
                                                             <!--begin::Content-->
                                                             <div class="me-5">
                                                                 <!--begin::Title-->
-                                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Abstergo Ltd.</a>
+                                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">{{$ticket->phone_number}}</a>
                                                                 <!--end::Title-->
 
                                                                 <!--begin::Desc-->
-                                                                <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Community</span>
+                                                                <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">{{$ticket->client_name}}</span>
                                                                 <!--end::Desc-->
                                                             </div>
                                                             <!--end::Content-->
                                                         </div>
+
                                                         <!--end::Section-->
 
                                                         <!--begin::Wrapper-->
                                                         <div class="d-flex align-items-center">
                                                             <!--begin::Number-->
-                                                            <span class="text-gray-800 fw-bold fs-4 me-3">579</span>
+                                                            <span class="text-gray-800 fw-bold fs-4 me-3 badge badge-light-success">{{$ticket->ticket_number}}</span>
                                                             <!--end::Number-->
-
-                                                            <!--begin::Info-->
-                                                            <div class="m-0">
-                                                                <!--begin::Label-->
-                                                                <span class="badge badge-light-success fs-base">
-                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>
-                                                                    2.6%
-                                                                </span>
-                                                                <!--end::Label-->
-                                                            </div>
-                                                            <!--end::Info-->
                                                         </div>
                                                         <!--end::Wrapper-->
                                                     </div>
-                                                    <!--end::Item-->
-
-                                                    <!--begin::Separator-->
-                                                    <div class="separator separator-dashed my-3"></div>
-                                                    <!--end::Separator-->
-
-                                                    <!--begin::Item-->
-                                                    <div class="d-flex flex-stack">
-                                                        <!--begin::Section-->
-                                                        <div class="d-flex align-items-center me-5">
-                                                            <!--begin::Flag-->
-                                                            <img src="assets/media/svg/brand-logos/telegram-2.svg" class="me-4 w-30px" style="border-radius: 4px;" alt="" />
-                                                            <!--end::Flag-->
-                                                            <!--begin::Content-->
-                                                            <div class="me-5">
-                                                                <!--begin::Title-->
-                                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Binford Ltd.</a>
-                                                                <!--end::Title-->
-                                                                <!--begin::Desc-->
-                                                                <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Media</span>
-                                                                <!--end::Desc-->
-                                                            </div>
-                                                            <!--end::Content-->
-                                                        </div>
-                                                        <!--end::Section-->
-
-                                                        <!--begin::Wrapper-->
-                                                        <div class="d-flex align-items-center">
-                                                            <!--begin::Number-->
-                                                            <span class="text-gray-800 fw-bold fs-4 me-3">2,588</span>
-                                                            <!--end::Number-->
-
-                                                            <!--begin::Info-->
-                                                            <div class="m-0">
-                                                                <!--begin::Label-->
-                                                                <span class="badge badge-light-danger fs-base">
-                                                                    <i class="ki-outline ki-arrow-down fs-5 text-danger ms-n1"></i>
-                                                                    0.4%
-                                                                </span>
-                                                                <!--end::Label-->
-                                                            </div>
-                                                            <!--end::Info-->
-                                                        </div>
-                                                        <!--end::Wrapper-->
-                                                    </div>
-                                                    <!--end::Item-->
-
-                                                    <!--begin::Separator-->
-                                                    <div class="separator separator-dashed my-3"></div>
-                                                    <!--end::Separator-->
-
-                                                    <!--begin::Item-->
-                                                    <div class="d-flex flex-stack">
-                                                        <!--begin::Section-->
-                                                        <div class="d-flex align-items-center me-5">
-                                                            <!--begin::Flag-->
-                                                            <img src="assets/media/svg/brand-logos/balloon.svg" class="me-4 w-30px" style="border-radius: 4px;" alt="" />
-                                                            <!--end::Flag-->
-
-                                                            <!--begin::Content-->
-                                                            <div class="me-5">
-                                                                <!--begin::Title-->
-                                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Barone LLC.</a>
-                                                                <!--end::Title-->
-
-                                                                <!--begin::Desc-->
-                                                                <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Messanger</span>
-                                                                <!--end::Desc-->
-                                                            </div>
-                                                            <!--end::Content-->
-                                                        </div>
-                                                        <!--end::Section-->
-
-                                                        <!--begin::Wrapper-->
-                                                        <div class="d-flex align-items-center">
-                                                            <!--begin::Number-->
-                                                            <span class="text-gray-800 fw-bold fs-4 me-3">794</span>
-                                                            <!--end::Number-->
-
-                                                            <!--begin::Info-->
-                                                            <div class="m-0">
-                                                                <!--begin::Label-->
-                                                                <span class="badge badge-light-success fs-base">
-                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>
-                                                                    0.2%
-                                                                </span>
-                                                                <!--end::Label-->
-                                                            </div>
-                                                            <!--end::Info-->
-                                                        </div>
-                                                        <!--end::Wrapper-->
-                                                    </div>
-                                                    <!--end::Item-->
-
-                                                    <!--begin::Separator-->
-                                                    <div class="separator separator-dashed my-3"></div>
-                                                    <!--end::Separator-->
-
-                                                    <!--begin::Item-->
-                                                    <div class="d-flex flex-stack">
-                                                        <!--begin::Section-->
-                                                        <div class="d-flex align-items-center me-5">
-                                                            <!--begin::Flag-->
-                                                            <img src="assets/media/svg/brand-logos/kickstarter.svg" class="me-4 w-30px" style="border-radius: 4px;" alt="" />
-                                                            <!--end::Flag-->
-
-                                                            <!--begin::Content-->
-                                                            <div class="me-5">
-                                                                <!--begin::Title-->
-                                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Abstergo Ltd.</a>
-                                                                <!--end::Title-->
-
-                                                                <!--begin::Desc-->
-                                                                <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Video Channel</span>
-                                                                <!--end::Desc-->
-                                                            </div>
-                                                            <!--end::Content-->
-                                                        </div>
-                                                        <!--end::Section-->
-
-                                                        <!--begin::Wrapper-->
-                                                        <div class="d-flex align-items-center">
-                                                            <!--begin::Number-->
-                                                            <span class="text-gray-800 fw-bold fs-4 me-3">1,578</span>
-                                                            <!--end::Number-->
-
-                                                            <!--begin::Info-->
-                                                            <div class="m-0">
-                                                                <!--begin::Label-->
-                                                                <span class="badge badge-light-success fs-base">
-                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>
-                                                                    4.1%
-                                                                </span>
-                                                                <!--end::Label-->
-                                                            </div>
-                                                            <!--end::Info-->
-                                                        </div>
-                                                        <!--end::Wrapper-->
-                                                    </div>
-                                                    <!--end::Item-->
-
-                                                    <!--begin::Separator-->
-                                                    <div class="separator separator-dashed my-3"></div>
-                                                    <!--end::Separator-->
-
-                                                    <!--begin::Item-->
-                                                    <div class="d-flex flex-stack">
-                                                        <!--begin::Section-->
-                                                        <div class="d-flex align-items-center me-5">
-                                                            <!--begin::Flag-->
-                                                            <img src="assets/media/svg/brand-logos/vimeo.svg" class="me-4 w-30px" style="border-radius: 4px;" alt="" />
-                                                            <!--end::Flag-->
-
-                                                            <!--begin::Content-->
-                                                            <div class="me-5">
-                                                                <!--begin::Title-->
-                                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Biffco Enterprises</a>
-                                                                <!--end::Title-->
-
-                                                                <!--begin::Desc-->
-                                                                <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Network</span>
-                                                                <!--end::Desc-->
-                                                            </div>
-                                                            <!--end::Content-->
-                                                        </div>
-                                                        <!--end::Section-->
-
-                                                        <!--begin::Wrapper-->
-                                                        <div class="d-flex align-items-center">
-                                                            <!--begin::Number-->
-                                                            <span class="text-gray-800 fw-bold fs-4 me-3">3,458</span>
-                                                            <!--end::Number-->
-
-                                                            <!--begin::Info-->
-                                                            <div class="m-0">
-                                                                <!--begin::Label-->
-                                                                <span class="badge badge-light-success fs-base">
-                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>
-                                                                    8.3%
-                                                                </span>
-                                                                <!--end::Label-->
-                                                            </div>
-                                                            <!--end::Info-->
-                                                        </div>
-                                                        <!--end::Wrapper-->
-                                                    </div>
-                                                    <!--end::Item-->
-
-                                                    <!--begin::Separator-->
-                                                    <div class="separator separator-dashed my-3"></div>
-                                                    <!--end::Separator-->
-
-                                                    <!--begin::Item-->
-                                                    <div class="d-flex flex-stack">
-                                                        <!--begin::Section-->
-                                                        <div class="d-flex align-items-center me-5">
-                                                            <!--begin::Flag-->
-                                                            <img src="assets/media/svg/brand-logos/plurk.svg" class="me-4 w-30px" style="border-radius: 4px;" alt="" />
-                                                            <!--end::Flag-->
-
-                                                            <!--begin::Content-->
-                                                            <div class="me-5">
-                                                                <!--begin::Title-->
-                                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Big Kahuna Burger</a>
-                                                                <!--end::Title-->
-
-                                                                <!--begin::Desc-->
-                                                                <span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Network</span>
-                                                                <!--end::Desc-->
-                                                            </div>
-                                                            <!--end::Content-->
-                                                        </div>
-                                                        <!--end::Section-->
-
-                                                        <!--begin::Wrapper-->
-                                                        <div class="d-flex align-items-center">
-                                                            <!--begin::Number-->
-                                                            <span class="text-gray-800 fw-bold fs-4 me-3">2,047</span>
-                                                            <!--end::Number-->
-
-                                                            <!--begin::Info-->
-                                                            <div class="m-0">
-                                                                <!--begin::Label-->
-                                                                <span class="badge badge-light-success fs-base">
-                                                                    <i class="ki-outline ki-arrow-up fs-5 text-success ms-n1"></i>
-                                                                    1.9%
-                                                                </span>
-                                                                <!--end::Label-->
-                                                            </div>
-                                                            <!--end::Info-->
-                                                        </div>
-                                                        <!--end::Wrapper-->
-                                                    </div>
-                                                    <!--end::Item-->
+                                                        <div class="separator separator-dashed my-3"></div>
+                                                 @endforeach
                                                 </div>
                                                 <!--end::Items-->
                                             </div>
@@ -533,7 +207,7 @@
                                                     <!--end::Statistics-->
 
                                                     <!--begin::Description-->
-                                                    <span class="fs-6 fw-semibold text-gray-400">Etherium rate</span>
+                                                    <span class="fs-6 fw-semibold text-gray-400">Hourly rate</span>
                                                     <!--end::Description-->
                                                 </h3>
                                                 <!--end::Title-->
@@ -1094,19 +768,11 @@
                             <!--end::Content-->
                         </div>
                         <!--end::Content wrapper-->
+                        <livewire:backend.footer />
 
-                        <!--begin::Footer-->
-                        <div id="kt_app_footer" class="app-footer d-flex flex-column flex-md-row align-items-center flex-center flex-md-stack py-2 py-lg-4">
-                            <!--begin::Copyright-->
-                            <div class="text-dark order-2 order-md-1">
-                                <span class="text-muted fw-semibold me-1">2023&copy;</span>
-                                <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">KivuFest</a>
-                            </div>
-                            <!--end::Copyright-->
-                        </div>
-                        <!--end::Footer-->
                     </div>
                     <!--end:::Main-->
+
                 </div>
                 <!--end::Wrapper container-->
             </div>

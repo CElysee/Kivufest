@@ -20,30 +20,28 @@ class TicketInfo extends Component
     public $payment_status_momo='';
     public $transaction_status_momo='';
 
-    protected $rules = [
-        'names' => 'required|min:6',
-        'email' => 'required|email',
-        'phone_number' => 'required|min:10|max:10',
-        'number_of_tickets' => 'required|min:1',
-    ];
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    }
+//    protected $rules = [
+//        'names' => 'required|min:6',
+//        'email' => 'required|email',
+//        'phone_number' => 'required|min:10|max:10',
+//        'number_of_tickets' => 'required|min:1',
+//    ];
+//    public function updated($propertyName)
+//    {
+//        $this->validateOnly($propertyName);
+//    }
     public function mount($id){
         $this->ticket_id = $id;
         $this->ticket_info = Ticket::where('id', $this->ticket_id)->first();
     }
-    public function submit(){
+    public function create(){
 
-//        $validatedDate = $this->validate([
-//            'names' => ['required'],
-//            'email' => 'required|email|',
-//            'phone_number' => 'required|min:10|max:10|',
-//            'number_of_tickets' => 'required|min:1|',
-//        ]);
-
-        $validatedData = $this->validate();
+        $validatedDate = $this->validate([
+            'names' => 'required|min:5',
+            'email' => 'required|email',
+            'phone_number' => 'required|min:10|max:10',
+            'number_of_tickets' => 'required',
+        ]);
 
         $ticket_amount = $this->ticket_info[0]['ticket_amount'];
         $new_amount = $ticket_amount * $this-> number_of_tickets;
@@ -175,6 +173,7 @@ class TicketInfo extends Component
                         'momo_deleted_at'=> $deletedat,
                         'momo_created_at'=> $responsedata[0]->created_at,
                         'momo_updated_at'=> $responsedata[0]->updated_at,
+                        'ticket_number'=> $this->number_of_tickets,
                     ]);
                     if($Momopayment){
                         $this->transaction_id = $Momopayment->transaction_id;
@@ -215,37 +214,70 @@ class TicketInfo extends Component
             if($responsedata){
                 $status = $responsedata[0]->payment_status;
                 if ($responsedata[0]->payment_status == "SUCCESSFUL"){
-                    $this->payment_status_momo = "Transaction is $status";
-                    $this->transaction_status_momo = "SUCCESSFUL";
-                    $update_transaction = \App\Models\MomoTransactions::find($client_payment_id);
-                    $update_transaction->payment_status =  $responsedata[0]->payment_status;
-                    $update_transaction->updated_at = $responsedata[0]->updated_at;
-                    $update_transaction->save();
-                    $ticket_number = substr($client_payment_names, -4) .'FEST'. mt_rand(10000, 999999);
-                    $newticket = \App\Models\TicketGenerated::create([
-                        'client_id' => $client_payment_id,
-                        'ticket_number' => $ticket_number,
-                        'ticket_status' => "Valid",
-                    ]);
-                    $new_num = '+25'.$this->phone_number;
-                    $sms_message = "Thank you for buying KIVUFEST Ticket, Here is your ticket number: $ticket_number ! See on July 1st -3rd";
-                    $curl = curl_init();
-                    curl_setopt_array($curl, array(
-                        CURLOPT_URL => 'https://api.mista.io/sms',
-                        CURLOPT_RETURNTRANSFER => true,
-                        CURLOPT_ENCODING => '',
-                        CURLOPT_MAXREDIRS => 10,
-                        CURLOPT_TIMEOUT => 0,
-                        CURLOPT_FOLLOWLOCATION => true,
-                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                        CURLOPT_CUSTOMREQUEST => 'POST',
-                        CURLOPT_POSTFIELDS => array('to' => $new_num,'from' => 'KIVUFEST','unicode' => '0','sms' => $sms_message,'action' => 'send-sms'),
-                        CURLOPT_HTTPHEADER => array(
-                            'x-api-key: 12|S7455JX2BatRojzHKl24cU5DyFsPeAVefGMrK1Bc '
-                        ),
-                    ));
-                    $response = curl_exec($curl);
-                    curl_close($curl);
+                    $payment_status = MomoTransactions::where('transaction_id',$this->transaction_id)->value('payment_status');
+                    if ($payment_status != "SUCCESSFUL"){
+                        $this->payment_status_momo = "Transaction is $status";
+                        $this->transaction_status_momo = "SUCCESSFUL";
+                        $update_transaction = \App\Models\MomoTransactions::find($client_payment_id);
+                        $update_transaction->payment_status =  $responsedata[0]->payment_status;
+                        $update_transaction->updated_at = $responsedata[0]->updated_at;
+                        $update_transaction->save();
+                        if($this->number_of_tickets > 1){
+                            for ($x = 1; $x <= $this->number_of_tickets; $x++) {
+                                $ticket_number = substr($client_payment_names, -4) .'FEST'. mt_rand(10000, 999999);
+                                $newticket = \App\Models\TicketGenerated::create([
+                                    'client_id' => $client_payment_id,
+                                    'ticket_number' => $ticket_number,
+                                    'ticket_status' => "Valid",
+                                ]);
+                                $new_num = '+25'.$this->phone_number;
+                                $sms_message = "Thank you for buying KIVUFEST Ticket, Here is your ticket number: $ticket_number ! See on July 1st -3rd";
+                                $curl = curl_init();
+                                curl_setopt_array($curl, array(
+                                    CURLOPT_URL => 'https://api.mista.io/sms',
+                                    CURLOPT_RETURNTRANSFER => true,
+                                    CURLOPT_ENCODING => '',
+                                    CURLOPT_MAXREDIRS => 10,
+                                    CURLOPT_TIMEOUT => 0,
+                                    CURLOPT_FOLLOWLOCATION => true,
+                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                    CURLOPT_CUSTOMREQUEST => 'POST',
+                                    CURLOPT_POSTFIELDS => array('to' => $new_num,'from' => 'KIVUFEST','unicode' => '0','sms' => $sms_message,'action' => 'send-sms'),
+                                    CURLOPT_HTTPHEADER => array(
+                                        'x-api-key: 12|S7455JX2BatRojzHKl24cU5DyFsPeAVefGMrK1Bc '
+                                    ),
+                                ));
+                                $response = curl_exec($curl);
+                                curl_close($curl);
+                            }
+                        }else{
+                            $ticket_number = substr($client_payment_names, -4) .'FEST'. mt_rand(10000, 999999);
+                            $newticket = \App\Models\TicketGenerated::create([
+                                'client_id' => $client_payment_id,
+                                'ticket_number' => $ticket_number,
+                                'ticket_status' => "Valid",
+                            ]);
+                            $new_num = '+25'.$this->phone_number;
+                            $sms_message = "Thank you for buying KIVUFEST Ticket, Here is your ticket number: $ticket_number ! See on July 1st -3rd";
+                            $curl = curl_init();
+                            curl_setopt_array($curl, array(
+                                CURLOPT_URL => 'https://api.mista.io/sms',
+                                CURLOPT_RETURNTRANSFER => true,
+                                CURLOPT_ENCODING => '',
+                                CURLOPT_MAXREDIRS => 10,
+                                CURLOPT_TIMEOUT => 0,
+                                CURLOPT_FOLLOWLOCATION => true,
+                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                CURLOPT_CUSTOMREQUEST => 'POST',
+                                CURLOPT_POSTFIELDS => array('to' => $new_num,'from' => 'KIVUFEST','unicode' => '0','sms' => $sms_message,'action' => 'send-sms'),
+                                CURLOPT_HTTPHEADER => array(
+                                    'x-api-key: 12|S7455JX2BatRojzHKl24cU5DyFsPeAVefGMrK1Bc '
+                                ),
+                            ));
+                            $response = curl_exec($curl);
+                            curl_close($curl);
+                        }
+                    }
                 }else{
                     $this->payment_status_momo = "Transaction is $status, Niba utahise wakira message yo kubikuza, kanda *182*7*1# ukurikize amabwiriza.";
                 }

@@ -33,22 +33,22 @@
                 <!--begin::Stat-->
                 <div class="border border-gray-300 border-dashed rounded min-w-100px w-100 py-2 px-4 me-6">
                     <!--begin::Date-->
-                    <span class="fs-6 text-gray-500 fw-bold">Budget</span>
+                    <span class="fs-6 text-gray-500 fw-bold">Total Amount</span>
                     <!--end::Date-->
 
                     <!--begin::Label-->
-                    <div class="fs-2 fw-bold text-success">$14,350</div>
+                    <div class="fs-2 fw-bold text-success">{{$total_amount}} RWF</div>
                     <!--end::Label-->
                 </div>
                 <!--end::Stat-->
                 <!--begin::Stat-->
                 <div class="border border-gray-300 border-dashed rounded min-w-100px w-100 py-2 px-4">
                     <!--begin::Date-->
-                    <span class="fs-6 text-gray-500 fw-bold">Spent</span>
+                    <span class="fs-6 text-gray-500 fw-bold">NUmber of tickets</span>
                     <!--end::Date-->
 
                     <!--begin::Label-->
-                    <div class="fs-2 fw-bold text-danger">$8,029</div>
+                    <div class="fs-2 fw-bold text-danger">{{$numberoftickets}}</div>
                     <!--end::Label-->
                 </div>
                 <!--end::Stat-->
@@ -58,7 +58,7 @@
             <!--begin::Links-->
             <div class="mb-0">
                 <!--begin::Title-->
-                <h3 class="text-gray-800 fw-bold mb-8">Services</h3>
+                <h3 class="text-gray-800 fw-bold mb-8">Menus</h3>
                 <!--end::Title-->
 
                 <!--begin::Row-->
@@ -66,7 +66,20 @@
                     <!--begin::Col-->
                     <div class="col-6">
                         <!--begin::Link-->
-                        <a href="apps/calendar.html" class="btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-100px h-100px border-gray-200" data-kt-button="true">
+                        <a href="{{'/dashboard'}}" class="btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-100px h-100px border-gray-200" data-kt-button="true">
+                            <!--begin::Icon-->
+                            <span class="mb-2"> <i class="ki-outline ki-tablet-book fs-1"></i> </span>
+                            <!--end::Icon-->
+                            <!--begin::Label-->
+                            <span class="fs-7 fw-bold">Dashboard</span>
+                            <!--end::Label-->
+                        </a>
+                        <!--end::Link-->
+                    </div>
+
+                    <div class="col-6">
+                        <!--begin::Link-->
+                        <a href="{{'/users'}}" class="btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-100px h-100px border-gray-200" data-kt-button="true">
                             <!--begin::Icon-->
                             <span class="mb-2"> <i class="ki-outline ki-calendar fs-1"></i> </span>
                             <!--end::Icon-->
@@ -95,7 +108,7 @@
                     <!--begin::Col-->
                     <div class="col-6">
                         <!--begin::Link-->
-                        <a href="apps/support-center/overview.html" class="btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-100px h-100px border-gray-200" data-kt-button="true">
+                        <a href="{{'/transactions'}}" class="btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-100px h-100px border-gray-200" data-kt-button="true">
                             <!--begin::Icon-->
                             <span class="mb-2"> <i class="ki-outline ki-wifi-home fs-1"></i> </span>
                             <!--end::Icon-->

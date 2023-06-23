@@ -15,8 +15,8 @@
 
                     <!--begin::Logo image-->
                     <a href="{{'/dashboard'}}">
-                        <img alt="Logo" src="{{asset('assets/media/logos/default-small.svg')}}" class="h-30px h-lg-40px theme-light-show" />
-                        <img alt="Logo" src="{{asset('assets/media/logos/default-small-dark.svg')}}" class="h-30px h-lg-40px theme-dark-show" />
+                        <img alt="Logo" src="{{asset('assets/logo/G-yNUEMq_400x400.jpg')}}" class="h-70px h-lg-70px theme-light-show" style="border-radius: 50px" />
+                        <img alt="Logo" src="{{asset('assets/logo/G-yNUEMq_400x400.jpg')}}" class="h-70px h-lg-70px theme-dark-show" style="border-radius: 50px" />
                     </a>
                     <!--end::Logo image-->
                 </div>
@@ -155,12 +155,9 @@
 
                             <!--begin::Menu item-->
                             <div class="menu-item px-5">
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf {{-- <x-responsive-nav-link href="" --}} {{-- @click.prevent="$root.submit();">--}} {{-- {{ __('Log Out') }}--}} {{-- </x-responsive-nav-link>--}}
-                                    <a href="{{ route('logout') }}" class="menu-link px-5" @click.prevent="$root.submit();">
-                                        {{ __('Log Out') }}
-                                    </a>
-                                </form>
+                                <a href="{{ route('logout') }}" class="menu-link px-5" @click.prevent="$root.submit();">
+                                    {{ __('Log Out') }}
+                                </a>
                             </div>
                             <!--end::Menu item-->
                         </div>

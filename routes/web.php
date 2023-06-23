@@ -33,6 +33,8 @@ Route::middleware([
     Route::get('redirects', [\App\Http\Controllers\Controller::class, 'index']);
     Route::get('/dashboard', \App\Http\Livewire\Backend\Admin\Dashboard::class)->name('dashboard.index');
     Route::get('/ticket', \App\Http\Livewire\Backend\Admin\Ticket::class)->name('ticket.index');
+    Route::get('/users', \App\Http\Livewire\Backend\Admin\Users::class)->name('users.index');
+    Route::get('/transactions', \App\Http\Livewire\Backend\Admin\Transactions::class)->name('transactions.index');
 ////    Route::get('/dashboard', function () {
 ////        return view('dashboard');
 ////    })->name('dashboard');

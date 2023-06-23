@@ -1,4 +1,6 @@
-@section('title', 'Dashboard') @push('styles') @endpush
+<div>
+    {{-- Success is as dangerous as failure. --}}
+</div>@section('title', 'Dashboard - Users') @push('styles') @endpush
 <div>
     <!--begin::App-->
     <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
@@ -44,7 +46,7 @@
                                         <div class="page-title d-flex align-items-center me-3">
                                             <!--begin::Title-->
                                             <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bold fs-lg-2x gap-2">
-                                                <span>Ticket Listing</span>
+                                                <span>User Listing</span>
                                             </h1>
                                             <!--end::Title-->
                                         </div>
@@ -84,24 +86,13 @@
 
                                             <!--begin::Item-->
                                             <li class="breadcrumb-item text-gray-700">
-                                                Ticket Listing
+                                                User Listing
                                             </li>
                                             <!--end::Item-->
                                         </ul>
                                         <!--end::Breadcrumb-->
                                     </div>
                                     <!--end::Toolbar container-->
-
-                                    <!--begin::Actions-->
-                                    <div class="d-flex align-self-center flex-center flex-shrink-0">
-                                        <a href="#" class="btn btn-sm btn-success d-flex flex-center ms-3 px-4 py-3" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
-                                            <i class="ki-outline ki-plus-square fs-2"></i>
-                                            <span>Invite</span>
-                                        </a>
-
-                                        <a href="#" class="btn btn-sm btn-dark ms-3 px-4 py-3" data-bs-toggle="modal" data-bs-target="#kt_modal_new_target"> Create <span class="d-none d-sm-inline">Target</span> </a>
-                                    </div>
-                                    <!--end::Actions-->
                                 </div>
                                 <!--end::Toolbar container-->
                             </div>
@@ -113,8 +104,8 @@
                                     <div class="alert alert-secondary mb-0" role="alert">
                                         <strong>Success!</strong> {{ session('success') }}
                                     </div>
-                                @endif
-                                <!--begin::Card-->
+                            @endif
+                            <!--begin::Card-->
                                 <div class="card">
                                     <!--begin::Card header-->
                                     <div class="card-header border-0 pt-6">
@@ -183,74 +174,59 @@
                                                         <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_customers_table .form-check-input" value="1" />
                                                     </div>
                                                 </th>
-                                                <th class="min-w-125px">Ticket Name</th>
-                                                <th class="min-w-125px">Ticket Description</th>
-                                                <th class="min-w-125px">Ticket Amount</th>
-                                                <th class="min-w-125px">Ticket Status</th>
+                                                <th class="min-w-125px">Names</th>
+                                                <th class="min-w-125px">Email</th>
+                                                <th class="min-w-125px">Image</th>
                                                 <th class="min-w-125px">Created Date</th>
                                                 <th class="text-end min-w-70px">Actions</th>
                                             </tr>
                                             </thead>
                                             <tbody class="fw-semibold text-gray-600">
-                                            @foreach($ticketList as $key => $ticket)
-                                            <tr>
-                                                <td>
-                                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="checkbox" value="1" />
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a href="details.html" class="text-gray-800 text-hover-primary mb-1">{{$ticket->ticket_title}}</a>
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">{{$ticket->ticket_description}}</a>
-                                                </td>
-                                                <td>
-                                                    {{$ticket->ticket_amount}}
-                                                </td>
-                                                <td>
-                                                    <!--begin::Badges-->
-                                                    @if($ticket->ticket_status == 1)
-                                                        <div class="badge badge-light-success">
-                                                            Displayed
+                                            @foreach($users as $key => $users)
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                                            <input class="form-check-input" type="checkbox" value="1" />
                                                         </div>
-                                                    @else
-                                                        <div class="badge badge-light-danger">
-                                                            Not Displayed
-                                                        </div>
-                                                    @endif
-                                                    <!--end::Badges-->
-                                                </td>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="text-gray-800 text-hover-primary mb-1">{{$users->name}}</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="text-gray-600 text-hover-primary mb-1">{{$users->email}}</a>
+                                                    </td>
+                                                    <td>
+                                                        <img src="{{asset('assets/logo/G-yNUEMq_400x400.jpg')}}" width="50px" style="border-radius: 50px">
+                                                    </td>
+                                                    <td>
+                                                        {{$users->created_at}}
+                                                    </td>
+                                                    <td class="text-end">
+                                                        <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                                            Actions
+                                                            <i class="ki-outline ki-down fs-5 ms-1"></i>
+                                                        </a>
+                                                        <!--begin::Menu-->
+                                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                            <!--begin::Menu item-->
+                                                            <div class="menu-item px-3">
+                                                                <a href="https://preview.keenthemes.com/metronic8/demo37/apps/customers/view.html" class="menu-link px-3">
+                                                                    Edit
+                                                                </a>
+                                                            </div>
+                                                            <!--end::Menu item-->
 
-                                                <td>
-                                                    {{$ticket->created_at}}
-                                                </td>
-                                                <td class="text-end">
-                                                    <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                                        Actions
-                                                        <i class="ki-outline ki-down fs-5 ms-1"></i>
-                                                    </a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="https://preview.keenthemes.com/metronic8/demo37/apps/customers/view.html" class="menu-link px-3">
-                                                                Edit
-                                                            </a>
+                                                            <!--begin::Menu item-->
+                                                            <div class="menu-item px-3">
+                                                                <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">
+                                                                    Delete
+                                                                </a>
+                                                            </div>
+                                                            <!--end::Menu item-->
                                                         </div>
-                                                        <!--end::Menu item-->
-
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">
-                                                                Delete
-                                                            </a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                </td>
-                                            </tr>
+                                                        <!--end::Menu-->
+                                                    </td>
+                                                </tr>
                                             @endforeach
                                             </tbody>
                                             <!--end::Table body-->
@@ -273,7 +249,7 @@
                                                     <strong>Success!</strong> {{ session('success') }}
                                                 </div>
                                             @endif
-                                            <!--begin::Form-->
+                                        <!--begin::Form-->
                                             <form class="form">
                                                 <!--begin::Modal header-->
                                                 <div class="modal-header" id="kt_modal_add_customer_header">
@@ -324,7 +300,7 @@
                                                             <!--begin::Input-->
                                                             <textarea rows="5" wire:model="ticket_description" class="form-control form-control-solid" name="ticket_description"></textarea>
                                                             @error('ticket_description') <span class="text-danger error">{{ $message }}</span>@enderror
-                                                            <!--end::Input-->
+                                                        <!--end::Input-->
                                                         </div>
                                                         <!--end::Input group-->
 
@@ -395,7 +371,7 @@
                                                             <span class="indicator-label">
                                                                 Submit
                                                             </span>
-{{--                                                        <span class="indicator-progress"> Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span> </span>--}}
+                                                        {{--                                                        <span class="indicator-progress"> Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span> </span>--}}
                                                     </button>
                                                     <!--end::Button-->
                                                 </div>
@@ -534,10 +510,7 @@
                             <!--end::Content-->
                         </div>
                         <!--end::Content wrapper-->
-
-                        <!--begin::Footer-->
                         <livewire:backend.footer />
-                        <!--end::Footer-->
                     </div>
                     <!--end:::Main-->
                 </div>
@@ -556,25 +529,5 @@
     <!--end::Scrolltop-->
 </div>
 @push('scripts')
-    <script type="text/javascript">
-        window.livewire.on('userUpdate', () => {
-            $('#kt_modal_add_customer').modal('hide');
-        });
-
-        window.livewire.on('userUpdate', () => {
-            $('#updateModal').modal('hide');
-        });
-
-    </script>
-    <script type="text/javascript">
-        window.livewire.on('userStore', () => {
-            $('#dark').modal('hide');
-        });
-        window.livewire.on('userUpdate', () => {
-            $('#updateModal').modal('hide');
-        });
-        // livewire.on('avatar_preview_updated', newticket => {
-        //     $('.zero-configuration').DataTable().ajax.reload(originalJsonData,true)
-        // });
-    </script>
 @endpush
+

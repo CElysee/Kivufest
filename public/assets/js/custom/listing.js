@@ -25,7 +25,7 @@ var KTCustomersList = function () {
             'order': [],
             'columnDefs': [
                 { orderable: false, targets: 0 }, // Disable ordering on column 0 (checkbox)
-                { orderable: false, targets: 6 }, // Disable ordering on column 6 (actions)
+                // { orderable: false, targets: 6 }, // Disable ordering on column 6 (actions)
             ]
         });
 
@@ -192,7 +192,7 @@ var KTCustomersList = function () {
         const toolbarSelected = document.querySelector('[data-kt-customer-table-toolbar="selected"]');
         const selectedCount = document.querySelector('[data-kt-customer-table-select="selected_count"]');
 
-        // Select refreshed checkbox DOM elements 
+        // Select refreshed checkbox DOM elements
         const allCheckboxes = table.querySelectorAll('tbody [type="checkbox"]');
 
         // Detect checkboxes state & count

@@ -1,4 +1,4 @@
-@section('title', 'Dashboard') @push('styles') @endpush
+@section('title', 'Dashboard - Transactions') @push('styles') @endpush
 <div>
     <!--begin::App-->
     <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
@@ -44,7 +44,7 @@
                                         <div class="page-title d-flex align-items-center me-3">
                                             <!--begin::Title-->
                                             <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bold fs-lg-2x gap-2">
-                                                <span>Ticket Listing</span>
+                                                <span>Transactions Listing</span>
                                             </h1>
                                             <!--end::Title-->
                                         </div>
@@ -84,7 +84,7 @@
 
                                             <!--begin::Item-->
                                             <li class="breadcrumb-item text-gray-700">
-                                                Ticket Listing
+                                                Transactions Listing
                                             </li>
                                             <!--end::Item-->
                                         </ul>
@@ -113,8 +113,8 @@
                                     <div class="alert alert-secondary mb-0" role="alert">
                                         <strong>Success!</strong> {{ session('success') }}
                                     </div>
-                                @endif
-                                <!--begin::Card-->
+                            @endif
+                            <!--begin::Card-->
                                 <div class="card">
                                     <!--begin::Card header-->
                                     <div class="card-header border-0 pt-6">
@@ -183,74 +183,38 @@
                                                         <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_customers_table .form-check-input" value="1" />
                                                     </div>
                                                 </th>
-                                                <th class="min-w-125px">Ticket Name</th>
-                                                <th class="min-w-125px">Ticket Description</th>
+                                                <th class="min-w-125px">Client Name</th>
+                                                <th class="min-w-125px">Client Number</th>
+                                                <th class="min-w-125px">Transaction Id</th>
                                                 <th class="min-w-125px">Ticket Amount</th>
-                                                <th class="min-w-125px">Ticket Status</th>
                                                 <th class="min-w-125px">Created Date</th>
-                                                <th class="text-end min-w-70px">Actions</th>
                                             </tr>
                                             </thead>
                                             <tbody class="fw-semibold text-gray-600">
-                                            @foreach($ticketList as $key => $ticket)
-                                            <tr>
-                                                <td>
-                                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="checkbox" value="1" />
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a href="details.html" class="text-gray-800 text-hover-primary mb-1">{{$ticket->ticket_title}}</a>
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="text-gray-600 text-hover-primary mb-1">{{$ticket->ticket_description}}</a>
-                                                </td>
-                                                <td>
-                                                    {{$ticket->ticket_amount}}
-                                                </td>
-                                                <td>
-                                                    <!--begin::Badges-->
-                                                    @if($ticket->ticket_status == 1)
-                                                        <div class="badge badge-light-success">
-                                                            Displayed
+                                            @foreach($transactions as $key => $transaction)
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                                            <input class="form-check-input" type="checkbox" value="1" />
                                                         </div>
-                                                    @else
-                                                        <div class="badge badge-light-danger">
-                                                            Not Displayed
-                                                        </div>
-                                                    @endif
-                                                    <!--end::Badges-->
-                                                </td>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="text-gray-800 text-hover-primary mb-1">{{$transaction->client_name}}</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="text-gray-600 text-hover-primary mb-1">{{$transaction->phone_number}}</a>
+                                                    </td>
+                                                    <td>
+                                                        {{$transaction->transaction_id}}
+                                                    </td>
+                                                    <td>
+                                                        {{$transaction->amount}} RWF
+                                                    </td>
 
-                                                <td>
-                                                    {{$ticket->created_at}}
-                                                </td>
-                                                <td class="text-end">
-                                                    <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                                        Actions
-                                                        <i class="ki-outline ki-down fs-5 ms-1"></i>
-                                                    </a>
-                                                    <!--begin::Menu-->
-                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="https://preview.keenthemes.com/metronic8/demo37/apps/customers/view.html" class="menu-link px-3">
-                                                                Edit
-                                                            </a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-
-                                                        <!--begin::Menu item-->
-                                                        <div class="menu-item px-3">
-                                                            <a href="#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">
-                                                                Delete
-                                                            </a>
-                                                        </div>
-                                                        <!--end::Menu item-->
-                                                    </div>
-                                                    <!--end::Menu-->
-                                                </td>
-                                            </tr>
+                                                    <td>
+                                                        {{$transaction->created_at}}
+                                                    </td>
+                                                </tr>
                                             @endforeach
                                             </tbody>
                                             <!--end::Table body-->
@@ -272,8 +236,8 @@
                                                 <div class="btn btn-dark h-1 py-4 " role="alert" style="margin: 10px;">
                                                     <strong>Success!</strong> {{ session('success') }}
                                                 </div>
-                                            @endif
-                                            <!--begin::Form-->
+                                        @endif
+                                        <!--begin::Form-->
                                             <form class="form">
                                                 <!--begin::Modal header-->
                                                 <div class="modal-header" id="kt_modal_add_customer_header">
@@ -324,7 +288,7 @@
                                                             <!--begin::Input-->
                                                             <textarea rows="5" wire:model="ticket_description" class="form-control form-control-solid" name="ticket_description"></textarea>
                                                             @error('ticket_description') <span class="text-danger error">{{ $message }}</span>@enderror
-                                                            <!--end::Input-->
+                                                        <!--end::Input-->
                                                         </div>
                                                         <!--end::Input group-->
 
@@ -395,7 +359,7 @@
                                                             <span class="indicator-label">
                                                                 Submit
                                                             </span>
-{{--                                                        <span class="indicator-progress"> Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span> </span>--}}
+                                                        {{--                                                        <span class="indicator-progress"> Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span> </span>--}}
                                                     </button>
                                                     <!--end::Button-->
                                                 </div>
