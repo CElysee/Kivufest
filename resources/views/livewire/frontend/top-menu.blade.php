@@ -41,11 +41,11 @@
                                                             display: inline-block;
                                                         }
                                                     </style>
-                                                    <a href="https://demo.themewinter.com/wp/exhibz/creative-conference/">
+                                                    <a href="{{'/'}}">
                                                         <img
                                                             width="400"
                                                             height="80"
-                                                            src="https://demo.themewinter.com/wp/exhibz/creative-conference/wp-content/uploads/sites/8/2021/12/header_logo.png"
+                                                            src="{{asset('assets/logo/1500x500.jpeg')}}"
                                                             class="attachment-full size-full wp-image-39"
                                                             alt="header_logo"
                                                             loading="lazy"
