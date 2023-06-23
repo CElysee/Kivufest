@@ -309,6 +309,7 @@
                                                                 <div class="elementskit_form_group">
                                                                     <div class="elementskit_input_element_container">
                                                                         <select wire:model="number_of_tickets" name="number_of_tickets" class="ekit_mail_email ekit_form_control" required>
+                                                                            <option>Select ticket</option>
                                                                             <option>1</option>
                                                                             <option>2</option>
                                                                             <option>3</option>
