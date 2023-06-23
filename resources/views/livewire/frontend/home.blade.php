@@ -323,7 +323,7 @@
             </div>
         </section>
     </div>
-    <livewire:frontend.top-menu />
+    <livewire:frontend.footer />
 </div>
 @push('scripts')
 @endpush
