@@ -272,13 +272,15 @@
                                             <div class="elementor-widget-container">
                                                 <div class="ekit-wid-con">
                                                     <div class="ekit-mail-chimp">
-                                                        <form class="ekit-mailChimpForm">
+{{--                                                        <form class="ekit-mailChimpForm">--}}
+                                                        <form wire:submit.prevent="submit" class="ekit-mailChimpForm">
                                                             <div class="elementskit_form_wraper elementskit_inline_form">
                                                                 <div class="ekit-mail-chimp-email elementskit_input_wraper elementskit_input_container">
                                                                     <div class="elementskit_form_group">
                                                                         <div class="elementskit_input_element_container">
                                                                             <input type="text" wire:model="names"  aria-label="names" name="names" class="ekit_mail_email ekit_form_control" placeholder="Names" />
-                                                                            @error('names') <span class="text-danger error">{{ $message }}</span>@enderror
+{{--                                                                            @error('names') <span class="text-danger error">{{ $message }}</span>@enderror--}}
+                                                                            @error('names') <span class="text-danger error">{{ $message }}</span> @enderror
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -287,8 +289,9 @@
                                                                 <div class="ekit-mail-chimp-email elementskit_input_wraper elementskit_input_container">
                                                                     <div class="elementskit_form_group">
                                                                         <div class="elementskit_input_element_container">
-                                                                            <input type="email"  wire:model="email"  aria-label="email" name="email" class="ekit_mail_email ekit_form_control" placeholder="Enter e-mail" />
-                                                                            @error('email') <span class="text-danger error">{{ $message }}</span>@enderror
+                                                                            <input type="email"  wire:model="email" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" aria-label="email" name="email" class="ekit_mail_email ekit_form_control" placeholder="Enter e-mail" required/>
+{{--                                                                            @error('email') <span class="text-danger error">{{ $message }}</span>@enderror--}}
+                                                                            @error('email') <span class="text-danger error">{{ $message }}</span> @enderror
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -296,16 +299,18 @@
                                                             <div class="ekit-mail-chimp-email elementskit_input_wraper elementskit_input_container">
                                                                 <div class="elementskit_form_group">
                                                                     <div class="elementskit_input_element_container">
-                                                                        <input type="text" wire:model="phone_number"  aria-label="Phone number" name="phone_number" class="ekit_mail_email ekit_form_control" placeholder="078********" />
-                                                                        @error('phone_number') <span class="text-danger error">{{ $message }}</span>@enderror
+                                                                        <input type="text" wire:model="phone_number"  aria-label="Phone number" name="phone_number" class="ekit_mail_email ekit_form_control" placeholder="078********" pattern="[0-9]{10}" required />
+{{--                                                                        @error('phone_number') <span class="text-danger error">{{ $message }}</span>@enderror--}}
+                                                                        @error('phone_number') <span class="error">{{ $message }}</span> @enderror
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="ekit-mail-chimp-email elementskit_input_wraper elementskit_input_container">
                                                                 <div class="elementskit_form_group">
                                                                     <div class="elementskit_input_element_container">
-                                                                        <input type="text" wire:model="number_of_tickets" aria-label="Number of tickets" name="number_of_tickets" class="ekit_mail_email ekit_form_control" placeholder="Number of tickets" />
-                                                                        @error('number_of_tickets') <span class="text-danger error">{{ $message }}</span>@enderror
+                                                                        <input type="number" step="0" wire:model="number_of_tickets" aria-label="Number of tickets" name="number_of_tickets" class="ekit_mail_email ekit_form_control" placeholder="Number of tickets" required/>
+{{--                                                                        @error('number_of_tickets') <span class="text-danger error">{{ $message }}</span>@enderror--}}
+                                                                        @error('number_of_tickets') <span class="error">{{ $message }}</span> @enderror
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -319,7 +324,7 @@
                                                                 <div class="elementor-widget-container">
                                                                     <div class="ekit-wid-con" style="text-align: center;">
                                                                         <div class="ekit-btn-wraper">
-                                                                            <button wire:click.prevent="create()" class="exhibz-btn whitespace--normal" wire:loading.remove>
+                                                                            <button type="submit" class="exhibz-btn whitespace--normal">
                                                                                 <span class="exhibz-button-text"> Grab <span>Ticket</span> </span>
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="56" height="50" viewBox="0 0 56 50" fill="none">
                                                                                     <path
@@ -329,6 +334,16 @@
                                                                                     ></path>
                                                                                 </svg>
                                                                             </button>
+{{--                                                                            <button wire:click.prevent="create()" class="exhibz-btn whitespace--normal" wire:loading.remove>--}}
+{{--                                                                                <span class="exhibz-button-text"> Grab <span>Ticket</span> </span>--}}
+{{--                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="50" viewBox="0 0 56 50" fill="none">--}}
+{{--                                                                                    <path--}}
+{{--                                                                                        d="M29.713 48.6221L22.9954 42.5031L33.2108 32.0607L34.8731 30.3614L32.4959 30.3614L1 30.3614L1 19.6386L32.4959 19.6386L34.8731 19.6386L33.2108 17.9393L22.9954 7.49689L29.7119 1.37891L53.602 25.0394L29.713 48.6221Z"--}}
+{{--                                                                                        stroke="#F52722"--}}
+{{--                                                                                        stroke-width="2"--}}
+{{--                                                                                    ></path>--}}
+{{--                                                                                </svg>--}}
+{{--                                                                            </button>--}}
                                                                             <button wire:loading wire:target="create" class="exhibz-btn whitespace--normal">
                                                                                 <span class="exhibz-button-text"> Processing Payment... </span>
                                                                             </button>

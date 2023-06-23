@@ -45,7 +45,7 @@
                                         <div class="page-title d-flex align-items-center me-3">
                                             <!--begin::Title-->
                                             <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bold fs-lg-2x gap-2">
-                                                <span><span class="fw-light">Welcome back</span>,&nbsp;Adam</span>
+                                                <span><span class="fw-light">Welcome back</span>,&nbsp;{{ Auth::user()->name }}</span>
                                                 <!--begin::Description-->
                                                 <span class="page-desc text-gray-600 fs-base fw-semibold">
                                                     You are logged in as a KivuFest Owner
@@ -67,6 +67,7 @@
                             <div id="kt_app_content" class="app-content flex-column-fluid">
                                 <!--begin::Row-->
                                 <div class="row g-5 g-xl-10 mb-5 mb-xl-0">
+
                                     <!--begin::Col-->
                                     <div class="col-md-4 mb-xl-10">
                                         <!--begin::Card widget 28-->

@@ -20,46 +20,31 @@ class TicketInfo extends Component
     public $payment_status_momo='';
     public $transaction_status_momo='';
 
+    protected $rules = [
+        'names' => 'required|min:6',
+        'email' => 'required|email',
+        'phone_number' => 'required|min:10|max:10',
+        'number_of_tickets' => 'required|min:1',
+    ];
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
     public function mount($id){
         $this->ticket_id = $id;
         $this->ticket_info = Ticket::where('id', $this->ticket_id)->first();
     }
-    public function create(){
+    public function submit(){
 
-        $validatedDate = $this->validate([
-            'names' => ['required'],
-            'email' => 'required',
-            'phone_number' => 'required|min:10|max:10|',
-            'number_of_tickets' => 'required|min:1|',
-        ]);
-
-
-//        $curl = curl_init();
-//        $transaction_id = $this->transaction_id;
-//        curl_setopt_array($curl, array(
-//            CURLOPT_URL => "http://akokanya.com/api/mtn-integration/9897986718)",
-//            CURLOPT_RETURNTRANSFER => true,
-//            CURLOPT_ENCODING => '',
-//            CURLOPT_MAXREDIRS => 10,
-//            CURLOPT_TIMEOUT => 0,
-//            CURLOPT_FOLLOWLOCATION => true,
-//            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-//            CURLOPT_CUSTOMREQUEST => 'GET',
-//            CURLOPT_HTTPHEADER => array(
-//                'token: OINjoOhop()*42CS%EWCSf@4r54%vfds!#gd^',
-//                'Cookie: laravel_session=eyJpdiI6Im1YUFwvekRFVys4MzFGK2p5WUoySk5RPT0iLCJ2YWx1ZSI6ImtKUXhLbmNseEZGOTUyZXFOUmt3NUJ1Wm56Vkc2UngxNnZIcFFlWUd4aFFtTlJCU1d3S1V0TlNVdzd5VXNnTWdYV2lxazdqRkRBQ3dXWjFBT3RDTllBPT0iLCJtYWMiOiJjY2JlZDhhMWE2Y2E0MGUyZWQwYmI4NTVhMWI5NTkzNWY2NGU3ZDM2N2YxMDI2YzhmZmIxYTRkZjgwNGRmYjFiIn0%3D'
-//            ),
-//        ));
-//        $response = curl_exec($curl);
-//        curl_close($curl);
-//        $responsedata=json_decode($response);
-
-//        $this->validate([
+//        $validatedDate = $this->validate([
 //            'names' => ['required'],
-//            'email' => 'required',
-//            'phone_number' => 'required|max:10|',
-//            'number_of_tickets' => 'required|max:10|',
+//            'email' => 'required|email|',
+//            'phone_number' => 'required|min:10|max:10|',
+//            'number_of_tickets' => 'required|min:1|',
 //        ]);
+
+        $validatedData = $this->validate();
+
         $ticket_amount = $this->ticket_info[0]['ticket_amount'];
         $new_amount = $ticket_amount * $this-> number_of_tickets;
         $new_num = $this->phone_number;
