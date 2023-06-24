@@ -28,7 +28,7 @@
                                                 data-widget_type="image.default"
                                             >
                                                 <div class="elementor-widget-container">
-                                                    <a href="https://demo.themewinter.com/wp/exhibz/creative-conference/">
+                                                    <a href="{{'/'}}">
                                                         <img
                                                             width="400"
                                                             height="80"
@@ -101,125 +101,9 @@
                                                 data-settings='{"ekit_we_effect_on":"none"}'
                                                 data-widget_type="elementskit-social-media.default"
                                             >
-{{--                                                <div class="elementor-widget-container">--}}
-{{--                                                    <div class="ekit-wid-con">--}}
-{{--                                                        <ul class="ekit_social_media">--}}
-{{--                                                            <li class="elementor-repeater-item-94208f7">--}}
-{{--                                                                <a href="#" aria-label="Facebook" class="facebook">--}}
-{{--                                                                    <i aria-hidden="true" class="icon icon-facebook"></i>--}}
-{{--                                                                </a>--}}
-{{--                                                            </li>--}}
-{{--                                                            <li class="elementor-repeater-item-554f005">--}}
-{{--                                                                <a href="#" aria-label="Instagram" class="instagram">--}}
-{{--                                                                    <i aria-hidden="true" class="fab fa-instagram"></i>--}}
-{{--                                                                </a>--}}
-{{--                                                            </li>--}}
-{{--                                                            <li class="elementor-repeater-item-1f981a8">--}}
-{{--                                                                <a href="#" aria-label="Twitter" class="twitter">--}}
-{{--                                                                    <i aria-hidden="true" class="fab fa-twitter"></i>--}}
-{{--                                                                </a>--}}
-{{--                                                            </li>--}}
-{{--                                                        </ul>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
                                             </div>
                                         </div>
                                     </div>
-{{--                                    <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-41024c6" data-id="41024c6" data-element_type="column">--}}
-{{--                                        <div class="elementor-widget-wrap elementor-element-populated">--}}
-{{--                                            <div--}}
-{{--                                                class="elementor-element elementor-element-2aba380 elementor-widget elementor-widget-elementskit-heading"--}}
-{{--                                                data-id="2aba380"--}}
-{{--                                                data-element_type="widget"--}}
-{{--                                                data-settings='{"ekit_we_effect_on":"none"}'--}}
-{{--                                                data-widget_type="elementskit-heading.default"--}}
-{{--                                            >--}}
-{{--                                                <div class="elementor-widget-container">--}}
-{{--                                                    <div class="ekit-wid-con">--}}
-{{--                                                        <div class="ekit-heading elementskit-section-title-wraper text_left ekit_heading_tablet- ekit_heading_mobile-">--}}
-{{--                                                            <p class="ekit-heading--title elementskit-section-title">Quick links</p>--}}
-{{--                                                            <div class="ekit_heading_separetor_wraper ekit_heading_elementskit-border-divider elementskit-style-long">--}}
-{{--                                                                <div class="elementskit-border-divider elementskit-style-long"></div>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                            <div--}}
-{{--                                                class="elementor-element elementor-element-fc291f8 elementor-widget__width-auto elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"--}}
-{{--                                                data-id="fc291f8"--}}
-{{--                                                data-element_type="widget"--}}
-{{--                                                data-settings='{"ekit_we_effect_on":"none"}'--}}
-{{--                                                data-widget_type="icon-list.default"--}}
-{{--                                            >--}}
-{{--                                                <div class="elementor-widget-container">--}}
-{{--                                                    <link rel="stylesheet" href="https://demo.themewinter.com/wp/exhibz/creative-conference/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css" />--}}
-{{--                                                    <ul class="elementor-icon-list-items">--}}
-{{--                                                        <li class="elementor-icon-list-item">--}}
-{{--                                                            <a href="https://demo.themewinter.com/wp/exhibz/creative-conference/about-us/">--}}
-{{--                                                                <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>--}}
-{{--                                                                <span class="elementor-icon-list-text">About Exhibz</span>--}}
-{{--                                                            </a>--}}
-{{--                                                        </li>--}}
-{{--                                                        <li class="elementor-icon-list-item">--}}
-{{--                                                            <a href="https://demo.themewinter.com/wp/exhibz/creative-conference/conference-hall/">--}}
-{{--                                                                <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>--}}
-{{--                                                                <span class="elementor-icon-list-text">Conference Hall</span>--}}
-{{--                                                            </a>--}}
-{{--                                                        </li>--}}
-{{--                                                        <li class="elementor-icon-list-item">--}}
-{{--                                                            <a href="https://demo.themewinter.com/wp/exhibz/creative-conference/contact/">--}}
-{{--                                                                <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>--}}
-{{--                                                                <span class="elementor-icon-list-text">Venue</span>--}}
-{{--                                                            </a>--}}
-{{--                                                        </li>--}}
-{{--                                                        <li class="elementor-icon-list-item">--}}
-{{--                                                            <a href="https://demo.themewinter.com/wp/exhibz/creative-conference/schedule/">--}}
-{{--                                                                <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>--}}
-{{--                                                                <span class="elementor-icon-list-text">Agenda</span>--}}
-{{--                                                            </a>--}}
-{{--                                                        </li>--}}
-{{--                                                    </ul>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                            <div--}}
-{{--                                                class="elementor-element elementor-element-955b982 elementor-widget__width-auto elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"--}}
-{{--                                                data-id="955b982"--}}
-{{--                                                data-element_type="widget"--}}
-{{--                                                data-settings='{"ekit_we_effect_on":"none"}'--}}
-{{--                                                data-widget_type="icon-list.default"--}}
-{{--                                            >--}}
-{{--                                                <div class="elementor-widget-container">--}}
-{{--                                                    <ul class="elementor-icon-list-items">--}}
-{{--                                                        <li class="elementor-icon-list-item">--}}
-{{--                                                            <a href="https://demo.themewinter.com/wp/exhibz/creative-conference/sponsors/">--}}
-{{--                                                                <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>--}}
-{{--                                                                <span class="elementor-icon-list-text">Sponsors</span>--}}
-{{--                                                            </a>--}}
-{{--                                                        </li>--}}
-{{--                                                        <li class="elementor-icon-list-item">--}}
-{{--                                                            <a href="https://demo.themewinter.com/wp/exhibz/creative-conference/speaker/">--}}
-{{--                                                                <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>--}}
-{{--                                                                <span class="elementor-icon-list-text">Speakers</span>--}}
-{{--                                                            </a>--}}
-{{--                                                        </li>--}}
-{{--                                                        <li class="elementor-icon-list-item">--}}
-{{--                                                            <a href="https://demo.themewinter.com/wp/exhibz/creative-conference/contact/">--}}
-{{--                                                                <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>--}}
-{{--                                                                <span class="elementor-icon-list-text">Contact</span>--}}
-{{--                                                            </a>--}}
-{{--                                                        </li>--}}
-{{--                                                        <li class="elementor-icon-list-item">--}}
-{{--                                                            <a href="https://demo.themewinter.com/wp/exhibz/creative-conference/blog/">--}}
-{{--                                                                <span class="elementor-icon-list-icon"> <i aria-hidden="true" class="fas fa-circle"></i> </span>--}}
-{{--                                                                <span class="elementor-icon-list-text">Blog</span>--}}
-{{--                                                            </a>--}}
-{{--                                                        </li>--}}
-{{--                                                    </ul>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
                                     <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c7432b8" data-id="c7432b8" data-element_type="column">
                                         <div class="elementor-widget-wrap elementor-element-populated">
                                             <div
