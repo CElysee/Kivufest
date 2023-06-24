@@ -289,7 +289,8 @@
                                                                 <div class="ekit-mail-chimp-email elementskit_input_wraper elementskit_input_container">
                                                                     <div class="elementskit_form_group">
                                                                         <div class="elementskit_input_element_container">
-                                                                            <input type="email"  wire:model="email" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" aria-label="email" name="email" class="ekit_mail_email ekit_form_control" placeholder="Enter e-mail" required/>
+{{--                                                                            <input type="email"  wire:model="email" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" aria-label="email" name="email" class="ekit_mail_email ekit_form_control" placeholder="Enter e-mail" required/>--}}
+                                                                            <input type="email"  wire:model="email" aria-label="email" name="email" class="ekit_mail_email ekit_form_control" placeholder="Enter e-mail" required/>
 {{--                                                                            @error('email') <span class="text-danger error">{{ $message }}</span>@enderror--}}
                                                                             @error('email') <span class="text-danger error">{{ $message }}</span> @enderror
                                                                         </div>
