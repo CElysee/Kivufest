@@ -104,11 +104,11 @@
                                                             </ul>
                                                             <div class="elementskit-nav-identity-panel">
                                                                 <div class="elementskit-site-title">
-                                                                    <a class="elementskit-nav-logo" href="https://demo.themewinter.com/wp/exhibz/creative-conference" target="_self" rel="">
+                                                                    <a class="elementskit-nav-logo" href="{{'/'}}" target="_self" rel="">
                                                                         <img
                                                                             width="400"
                                                                             height="80"
-                                                                            src="https://demo.themewinter.com/wp/exhibz/creative-conference/wp-content/uploads/sites/8/2021/12/header_logo.png"
+                                                                            src="{{asset('assets/logo/1500x500.jpeg')}}"
                                                                             class="attachment-full size-full"
                                                                             alt="header_logo"
                                                                             decoding="async"
