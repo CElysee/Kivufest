@@ -1,5 +1,6 @@
 <?php
 
+use BaconQrCode\Encoder\QrCode;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,8 @@ Route::get('/', \App\Http\Livewire\Frontend\Home::class)->name('home.index');
 //Route::get('/buy-ticket', \App\Http\Livewire\Frontend\Home::class)->name('home.index');
 Route::get('/sign-in', [\App\Http\Controllers\Controller::class, 'login']);
 Route::get('/ticket-info/{id}', \App\Http\Livewire\Frontend\TicketInfo::class);
+Route::get('/generate-qrcode/{id}', \App\Http\Livewire\Frontend\QRCode::class);
+Route::get('/validate-ticket/{id}', \App\Http\Livewire\Frontend\ValidateTicket::class);
 //Route::get('Home', Dashboard::class)->name('dashboard.index');
 //Route::get('/home', \App\Http\Livewire\Backend\Admin\Dashboard::class);
 
