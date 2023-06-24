@@ -258,7 +258,7 @@ class TicketInfo extends Component
                                 'ticket_status' => "Valid",
                             ]);
                             $new_num = '+25'.$this->phone_number;
-                            $this->ticketLink = "https://kivufest.co.rw/validate-ticket/$ticket_number";
+                            $this->ticketLink = "https://kivufest.co.rw/generate-qrcode/$ticket_number";
                             $sms_message = "Thank you for buying KIVUFEST Ticket, Here is your ticket number: $this->ticketLink \n,See on July 1st -3rd";
                             $curl = curl_init();
                             curl_setopt_array($curl, array(
