@@ -48,11 +48,11 @@
                                                 data-widget_type="image.default"
                                             >
                                                 <div class="elementor-widget-container">
-                                                    <a href="https://demo.themewinter.com/wp/exhibz/creative-conference/">
+                                                    <a href="{{'/'}}">
                                                         <img
                                                             width="404"
                                                             height="80"
-                                                            src="{{asset('assets/logo/1500x500.jpeg')}}g"
+                                                            src="{{asset('assets/logo/1500x500.jpeg')}}"
                                                             class="attachment-large size-large wp-image-490"
                                                             alt=""
                                                             loading="lazy"
