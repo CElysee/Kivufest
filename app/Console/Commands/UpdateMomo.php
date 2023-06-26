@@ -32,6 +32,7 @@ class UpdateMomo extends Command
     {
         $check_pending_transaction = MomoTransactions::where('payment_status', 'PENDING')->get();
         foreach ($check_pending_transaction as $transaction){
+            $client_user_id= $transaction['id'];
             $client_payment_id = $transaction['transaction_id'];
             $client_payment_names = $transaction['client_name'];
             $client_ticket_number = $transaction['ticket_number'];
@@ -57,7 +58,7 @@ class UpdateMomo extends Command
 //            dd($responsedata);
             if($responsedata){
                 if ($responsedata[0]->payment_status == "SUCCESSFUL"){
-                    $update_transaction = MomoTransactions::find($client_payment_id);
+                    $update_transaction = MomoTransactions::find($client_user_id);
                     $update_transaction->payment_status =  $responsedata[0]->payment_status;
                     $update_transaction->updated_at = $responsedata[0]->updated_at;
                     $update_transaction->save();
@@ -119,7 +120,7 @@ class UpdateMomo extends Command
                         curl_close($curl);
                     }
                 }else{
-                    $update_transaction = MomoTransactions::find($client_payment_id);
+                    $update_transaction = MomoTransactions::find($client_user_id);
                     $update_transaction->payment_status =  $responsedata[0]->payment_status;
                     $update_transaction->updated_at = $responsedata[0]->updated_at;
                     $update_transaction->save();
