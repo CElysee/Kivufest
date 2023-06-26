@@ -57,7 +57,7 @@ class UpdateMomo extends Command
             $responsedata=json_decode($response);
 //            dd($responsedata);
             if($responsedata){
-                if ($responsedata[0]->payment_status == "SUCCESSFUL"){
+                if($responsedata[0]->payment_status == "SUCCESSFUL"){
                     $update_transaction = MomoTransactions::find($client_user_id);
                     $update_transaction->payment_status =  $responsedata[0]->payment_status;
                     $update_transaction->updated_at = $responsedata[0]->updated_at;
@@ -66,7 +66,7 @@ class UpdateMomo extends Command
                         for ($x = 1; $x <= $client_ticket_number; $x++) {
                             $ticket_number = substr($client_payment_names, -4) .'FEST'. mt_rand(10000, 999999);
                             $newticket = TicketGenerated::create([
-                                'client_id' => $client_payment_id,
+                                'client_id' => $client_user_id,
                                 'ticket_number' => $ticket_number,
                                 'ticket_status' => "Valid",
                             ]);
@@ -94,7 +94,7 @@ class UpdateMomo extends Command
                     }else{
                         $ticket_number = substr($client_payment_names, -4) .'FEST'. mt_rand(10000, 999999);
                         $newticket = TicketGenerated::create([
-                            'client_id' => $client_payment_id,
+                            'client_id' => $client_user_id,
                             'ticket_number' => $ticket_number,
                             'ticket_status' => "Valid",
                         ]);
