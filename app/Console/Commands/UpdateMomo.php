@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\MomoTransactions;
 use App\Models\TicketGenerated;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class UpdateMomo extends Command
 {
@@ -125,5 +126,6 @@ class UpdateMomo extends Command
                 }
             }
         }
+        Log::info('Cron Job Ended');
     }
 }
